@@ -238,7 +238,8 @@ function initAuditModal() {
     document.getElementById('btn-open-audit-header'),
     document.getElementById('btn-open-audit-hero'),
     document.getElementById('btn-open-audit-calc'),
-    document.getElementById('btn-open-audit-footer')
+    document.getElementById('btn-open-audit-footer'),
+    document.getElementById('btn-consult-andriy')
   ].filter(Boolean);
 
   const closeBtn = document.getElementById('btn-close-dialog');
