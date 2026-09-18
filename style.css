@@ -1513,6 +1513,40 @@ dialog.audit-dialog::backdrop {
   font-weight: 600;
 }
 
+.custom-tool-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: -16px;
+  margin-bottom: 24px;
+}
+
+.other-text-field {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  color: var(--text-main);
+  font-size: 0.88rem;
+  font-family: inherit;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.other-text-field:focus {
+  outline: none;
+  border-color: var(--cyan);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.25);
+  background: rgba(6, 182, 212, 0.04);
+}
+
+.other-text-field:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: rgba(255, 255, 255, 0.015);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
 /* Form Inputs */
 .form-inputs-wrap {
   display: flex;

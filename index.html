@@ -920,7 +920,7 @@
           <p class="step-prompt">Which platforms and tools need to be connected? (Select all that apply)</p>
           <div class="checkbox-options-grid">
             <label class="custom-checkbox">
-              <input type="checkbox" name="tools" value="n8n" checked>
+              <input type="checkbox" name="tools" value="n8n / Make" checked>
               <span class="check-box-ui">n8n / Make</span>
             </label>
             <label class="custom-checkbox">
@@ -930,6 +930,10 @@
             <label class="custom-checkbox">
               <input type="checkbox" name="tools" value="PostgreSQL / Supabase">
               <span class="check-box-ui">PostgreSQL / Supabase</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="Salesforce">
+              <span class="check-box-ui">Salesforce CRM</span>
             </label>
             <label class="custom-checkbox">
               <input type="checkbox" name="tools" value="Simpro ERP">
@@ -944,6 +948,34 @@
               <span class="check-box-ui">Google Workspace / Email</span>
             </label>
             <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="Zapier / Integromat">
+              <span class="check-box-ui">Zapier / Integromat</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="Slack / Microsoft Teams">
+              <span class="check-box-ui">Slack / Microsoft Teams</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="Airtable / Notion">
+              <span class="check-box-ui">Airtable / Notion</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="Stripe / PayPal">
+              <span class="check-box-ui">Stripe / PayPal</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="Shopify / WooCommerce">
+              <span class="check-box-ui">Shopify / WooCommerce</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="Twilio / Vonage">
+              <span class="check-box-ui">Twilio / Vonage (SMS/Voice)</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="QuickBooks / Xero">
+              <span class="check-box-ui">QuickBooks / Xero</span>
+            </label>
+            <label class="custom-checkbox">
               <input type="checkbox" name="tools" value="Custom REST API">
               <span class="check-box-ui">Custom REST API / Webhooks</span>
             </label>
@@ -951,6 +983,13 @@
               <input type="checkbox" name="tools" value="OpenAI / Claude LLMs">
               <span class="check-box-ui">OpenAI / Claude LLMs</span>
             </label>
+          </div>
+          <div class="custom-tool-input">
+            <label class="custom-checkbox other-checkbox">
+              <input type="checkbox" name="tools" value="" id="tool-other-check">
+              <span class="check-box-ui">Other (specify below)</span>
+            </label>
+            <input type="text" id="tool-other-text" class="other-text-field" placeholder="e.g. Monday.com, Freshdesk, SAP, custom in-house app…" disabled>
           </div>
           <div class="form-actions">
             <button type="button" class="btn btn-secondary" id="btn-step-2-prev">Back</button>
