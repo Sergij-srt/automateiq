@@ -261,19 +261,24 @@ function initAuditModal() {
   const successLeadName = document.getElementById('success-lead-name');
 
   function showStep(stepNum) {
-    [step1, step2, step3, stepSuccess].forEach(s => s.classList.remove('active'));
-    if (stepNum === 1) {
+    [step1, step2, step3, stepSuccess].forEach(s => {
+      if (s) s.classList.remove('active');
+    });
+    if (stepNum === 1 && step1) {
       step1.classList.add('active');
       stepBadge.textContent = 'Step 1 of 3';
-    } else if (stepNum === 2) {
+    } else if (stepNum === 2 && step2) {
       step2.classList.add('active');
       stepBadge.textContent = 'Step 2 of 3';
-    } else if (stepNum === 3) {
+    } else if (stepNum === 3 && step3) {
       step3.classList.add('active');
       stepBadge.textContent = 'Step 3 of 3';
-    } else if (stepNum === 'success') {
+    } else if (stepNum === 'success' && stepSuccess) {
       stepSuccess.classList.add('active');
       stepBadge.textContent = 'Confirmed';
+    }
+    if (form) {
+      form.scrollTop = 0;
     }
   }
 
@@ -287,16 +292,17 @@ function initAuditModal() {
   closeBtn.addEventListener('click', () => dialog.close());
   closeSuccessBtn.addEventListener('click', () => dialog.close());
 
-  // Light dismiss on backdrop click
+  // Prevent any click inside the card from propagating to dialog
+  const dialogCard = dialog.querySelector('.dialog-card');
+  if (dialogCard) {
+    dialogCard.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  }
+
+  // Light dismiss ONLY when clicking outside the dialog card (on backdrop)
   dialog.addEventListener('click', (e) => {
-    const rect = dialog.getBoundingClientRect();
-    const isInDialog = (
-      rect.top <= e.clientY &&
-      e.clientY <= rect.top + rect.height &&
-      rect.left <= e.clientX &&
-      e.clientX <= rect.left + rect.width
-    );
-    if (!isInDialog) {
+    if (e.target === dialog) {
       dialog.close();
     }
   });
@@ -313,6 +319,13 @@ function initAuditModal() {
       toolOtherText.disabled = !toolOtherCheck.checked;
       if (toolOtherCheck.checked) {
         toolOtherText.focus();
+      }
+    });
+    // If user presses Enter in "Other" text input, proceed to step 3 instead of closing
+    toolOtherText.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        showStep(3);
       }
     });
   }
@@ -348,17 +361,26 @@ function initAuditModal() {
     /* ── 1. Send Telegram notification to Group & Direct Chat ──── */
     const tgToken   = '8820754329:AAER4vZUbtLPqHUdATp53xGzbDdvsP4yRcA';
     const tgChatIds = ['-5580728612', '425454406'];
-    const tgText    = [
-      '🔔 *New Lead from AutomateIQ Website*',
+
+    const escapeHtml = (str) => String(str || '').replace(/[&<>'"]/g, tag => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      "'": '&#39;',
+      '"': '&quot;'
+    }[tag] || tag));
+
+    const tgHtml = [
+      '🔔 <b>New Lead from AutomateIQ Website</b>',
       '',
-      `👤 *Name:* ${nameVal}`,
-      `📧 *Email:* ${emailVal}`,
-      `🏢 *Company:* ${companyVal || '—'}`,
-      `⚙️ *Bottleneck:* ${bottleneck}`,
-      `🔧 *Tools:* ${tools}`,
-      `📝 *Notes:* ${notesVal || '—'}`,
+      `👤 <b>Name:</b> ${escapeHtml(nameVal)}`,
+      `📧 <b>Email:</b> ${escapeHtml(emailVal)}`,
+      `🏢 <b>Company:</b> ${escapeHtml(companyVal || '—')}`,
+      `⚙️ <b>Bottleneck:</b> ${escapeHtml(bottleneck)}`,
+      `🔧 <b>Tools:</b> ${escapeHtml(tools)}`,
+      `📝 <b>Notes:</b> ${escapeHtml(notesVal || '—')}`,
       '',
-      `📅 _${new Date().toLocaleString('en-GB', { timeZone: 'Europe/Kiev' })}_`
+      `📅 <i>${new Date().toLocaleString('en-GB', { timeZone: 'Europe/Kiev' })}</i>`
     ].join('\n');
 
     tgChatIds.forEach(chatId => {
@@ -367,8 +389,8 @@ function initAuditModal() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           chat_id: chatId,
-          text: tgText,
-          parse_mode: 'Markdown'
+          text: tgHtml,
+          parse_mode: 'HTML'
         })
       }).catch(() => { /* silent – user already sees success */ });
     });
