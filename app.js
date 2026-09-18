@@ -308,9 +308,65 @@ function initAuditModal() {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const nameVal = leadNameInput.value.trim() || 'there';
+
+    /* ── Collect all form data ────────────────────────────────── */
+    const nameVal    = (document.getElementById('lead-name').value || '').trim() || 'there';
+    const emailVal   = (document.getElementById('lead-email').value || '').trim();
+    const companyVal = (document.getElementById('lead-company').value || '').trim();
+    const notesVal   = (document.getElementById('lead-notes').value || '').trim();
+
+    const bottleneckEl = form.querySelector('input[name="bottleneck"]:checked');
+    const bottleneck   = bottleneckEl ? bottleneckEl.value : '—';
+
+    const toolEls = form.querySelectorAll('input[name="tools"]:checked');
+    const tools   = Array.from(toolEls).map(el => el.value).join(', ') || '—';
+
+    /* ── Show success screen instantly (fire-and-forget) ─────── */
     successLeadName.textContent = nameVal;
     showStep('success');
+
+    /* ── 1. Send Telegram notification ───────────────────────── */
+    const tgToken  = '8820754329:AAER4vZUbtLPqHUdATp53xGzbDdvsP4yRcA';
+    const tgChatId = '425454406';
+    const tgText   = [
+      '🔔 *New Lead from AutomateIQ Website*',
+      '',
+      `👤 *Name:* ${nameVal}`,
+      `📧 *Email:* ${emailVal}`,
+      `🏢 *Company:* ${companyVal || '—'}`,
+      `⚙️ *Bottleneck:* ${bottleneck}`,
+      `🔧 *Tools:* ${tools}`,
+      `📝 *Notes:* ${notesVal || '—'}`,
+      '',
+      `📅 _${new Date().toLocaleString('en-GB', { timeZone: 'Europe/Kiev' })}_`
+    ].join('\n');
+
+    fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        chat_id: tgChatId,
+        text: tgText,
+        parse_mode: 'Markdown'
+      })
+    }).catch(() => { /* silent – user already sees success */ });
+
+    /* ── 2. Send email notification via formsubmit.co ────────── */
+    const emailData = new FormData();
+    emailData.append('name', nameVal);
+    emailData.append('email', emailVal);
+    emailData.append('company', companyVal || '—');
+    emailData.append('_subject', `🔔 New AutomateIQ Lead: ${nameVal}`);
+    emailData.append('bottleneck', bottleneck);
+    emailData.append('tools', tools);
+    emailData.append('notes', notesVal || '—');
+    emailData.append('_captcha', 'false');
+    emailData.append('_template', 'table');
+
+    fetch('https://formsubmit.co/ajax/sirotinskijsergij@gmail.com', {
+      method: 'POST',
+      body: emailData
+    }).catch(() => { /* silent */ });
   });
 }
 
