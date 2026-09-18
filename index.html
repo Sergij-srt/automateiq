@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutomateIQ — Enterprise AI Automation & Autonomous Pipelines</title>
+  <meta name="description" content="AutomateIQ designs and deploys production-grade, end-to-end AI automation pipelines with n8n, Python, and Claude/OpenAI. Zero hallucinations, 99.9% uptime, 100% data ownership.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Decorative Glows -->
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+  <div class="bg-grid-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation Header -->
+  <header class="site-header" id="site-header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-logo" aria-label="AutomateIQ Home">
+        <div class="logo-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">Automate<span class="text-gradient">IQ</span></span>
+          <span class="brand-tag">AI Engineering</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#solutions" class="nav-link">Solutions</a></li>
+          <li><a href="#demo" class="nav-link">Live Pipeline</a></li>
+          <li><a href="#calculator" class="nav-link">ROI Calculator</a></li>
+          <li><a href="#case-studies" class="nav-link">Blueprints</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="upwork-badge-pill" title="Top Rated Agency on Upwork with 100% Job Success">
+          <span class="badge-dot"></span>
+          <span class="badge-text">Top Rated • 100% JSS</span>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm" id="btn-open-audit-header">
+          <span>Book Free Audit</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <button type="button" class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        
+        <div class="hero-badge-wrap">
+          <div class="hero-pill">
+            <span class="pill-spark">✦</span>
+            <span>Production-Grade AI Automation for Scaling Operations</span>
+          </div>
+        </div>
+
+        <h1 class="hero-title">
+          Eliminate 100+ Hours of Operational Drag with <span class="text-gradient">Autonomous AI Pipelines</span>.
+        </h1>
+
+        <p class="hero-subtitle">
+          We architect, engineer, and deploy resilient end-to-end automation pipelines using <strong>n8n</strong>, <strong>Python</strong>, and <strong>Claude/OpenAI</strong>. Connect your entire tool stack with strict schema validation, zero hallucinations, and 99.9% uptime.
+        </p>
+
+        <div class="hero-cta-group">
+          <button type="button" class="btn btn-primary btn-lg" id="btn-open-audit-hero">
+            <span>Request Free Architecture Audit</span>
+            <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <a href="#calculator" class="btn btn-secondary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <span>Calculate Your ROI</span>
+          </a>
+        </div>
+
+        <!-- Trust Metrics Ribbon -->
+        <div class="trust-ribbon">
+          <div class="trust-item">
+            <div class="trust-number text-gradient">100%</div>
+            <div class="trust-label">Job Success Score</div>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <div class="trust-number text-gradient">35+</div>
+            <div class="trust-label">Verified 5-Star Reviews</div>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <div class="trust-number text-gradient">$20K+</div>
+            <div class="trust-label">Enterprise Delivered</div>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-item">
+            <div class="trust-number text-gradient">Zero</div>
+            <div class="trust-label">Vendor Lock-In (Self-Hosted)</div>
+          </div>
+        </div>
+
+        <!-- Tech Stack Integrations Strip -->
+        <div class="tech-strip">
+          <span class="tech-strip-title">INTEGRATING YOUR CRITICAL STACK</span>
+          <div class="tech-tags">
+            <span class="tech-badge">n8n (Self-Hosted)</span>
+            <span class="tech-badge">Python Microservices</span>
+            <span class="tech-badge">Claude 3.5 Sonnet</span>
+            <span class="tech-badge">OpenAI GPT-4o</span>
+            <span class="tech-badge">PostgreSQL / Supabase</span>
+            <span class="tech-badge">Simpro ERP</span>
+            <span class="tech-badge">Beds24</span>
+            <span class="tech-badge">HubSpot / Pipedrive</span>
+            <span class="tech-badge">Airtable</span>
+            <span class="tech-badge">REST APIs & Webhooks</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- INTERACTIVE PIPELINE DEMO SECTION -->
+    <section class="demo-section" id="demo">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">Interactive Architecture Simulation</div>
+          <h2 class="section-title">See How an <span class="text-gradient">AutomateIQ Pipeline</span> Executes in Real Time</h2>
+          <p class="section-subtitle">
+            Most automations break because they pass messy raw text. We enforce strict JSON schemas, handle API rate limits, and provide automatic recovery. Test a live pipeline below:
+          </p>
+        </div>
+
+        <div class="demo-card glass-panel">
+          
+          <!-- Pipeline Selector Tabs -->
+          <div class="pipeline-tabs" role="tablist">
+            <button type="button" class="tab-btn active" data-pipeline="lead" role="tab" aria-selected="true">
+              <span class="tab-icon">⚡</span>
+              <span>Inbound Lead & CRM Qualification</span>
+            </button>
+            <button type="button" class="tab-btn" data-pipeline="invoice" role="tab" aria-selected="false">
+              <span class="tab-icon">📄</span>
+              <span>PDF Invoice Extraction & ERP Sync</span>
+            </button>
+            <button type="button" class="tab-btn" data-pipeline="hospitality" role="tab" aria-selected="false">
+              <span class="tab-icon">🏨</span>
+              <span>Multi-Channel Calendar & Guest AI</span>
+            </button>
+          </div>
+
+          <!-- Pipeline Architecture Diagram Visualizer -->
+          <div class="pipeline-flow-wrap">
+            <div class="pipeline-nodes-container" id="pipeline-nodes">
+              
+              <div class="pipe-node" data-step="1">
+                <div class="node-status-dot"></div>
+                <div class="node-icon">📥</div>
+                <div class="node-title">1. Trigger Event</div>
+                <div class="node-desc" id="step-1-desc">Webhook / Inbound Email</div>
+              </div>
+
+              <div class="pipe-connector">
+                <div class="connector-line"></div>
+                <div class="connector-pulse"></div>
+              </div>
+
+              <div class="pipe-node" data-step="2">
+                <div class="node-status-dot"></div>
+                <div class="node-icon">🧠</div>
+                <div class="node-title">2. AI Extraction</div>
+                <div class="node-desc" id="step-2-desc">Claude 3.5 Sonnet Reasoning</div>
+              </div>
+
+              <div class="pipe-connector">
+                <div class="connector-line"></div>
+                <div class="connector-pulse"></div>
+              </div>
+
+              <div class="pipe-node" data-step="3">
+                <div class="node-status-dot"></div>
+                <div class="node-icon">🛡️</div>
+                <div class="node-title">3. Schema Validation</div>
+                <div class="node-desc" id="step-3-desc">Pydantic / JSON Rules Check</div>
+              </div>
+
+              <div class="pipe-connector">
+                <div class="connector-line"></div>
+                <div class="connector-pulse"></div>
+              </div>
+
+              <div class="pipe-node" data-step="4">
+                <div class="node-status-dot"></div>
+                <div class="node-icon">🔄</div>
+                <div class="node-title">4. Deep Sync</div>
+                <div class="node-desc" id="step-4-desc">CRM, ERP & DB Mutex Update</div>
+              </div>
+
+              <div class="pipe-connector">
+                <div class="connector-line"></div>
+                <div class="connector-pulse"></div>
+              </div>
+
+              <div class="pipe-node" data-step="5">
+                <div class="node-status-dot"></div>
+                <div class="node-icon">📢</div>
+                <div class="node-title">5. Action & Alert</div>
+                <div class="node-desc" id="step-5-desc">Slack / Telegram Dispatch</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Controls & Live Output Console -->
+          <div class="demo-console-wrap">
+            <div class="console-header">
+              <div class="console-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <span class="console-title">Pipeline Execution Log (Real-time n8n / Python Telemetry)</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-run-simulation">
+                <span id="sim-btn-icon">▶</span>
+                <span id="sim-btn-text">Run Live Simulation</span>
+              </button>
+            </div>
+            <div class="console-body" id="console-output">
+              <div class="log-line text-muted">// System ready. Click "Run Live Simulation" to observe structured schema execution.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- WHY AUTOMATEIQ COMPARISON SECTION -->
+    <section class="comparison-section" id="comparison">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">Engineering-Grade Standards</div>
+          <h2 class="section-title">Why Fragile "Zaps" Break vs How <span class="text-gradient">AutomateIQ</span> Builds</h2>
+          <p class="section-subtitle">
+            Most businesses hire junior freelancers who patch together brittle no-code workflows that fail silently. Here is why enterprise clients trust our architecture:
+          </p>
+        </div>
+
+        <div class="comparison-grid">
+          
+          <div class="comp-card fragile-card">
+            <div class="comp-card-badge">❌ Typical Fragile Automations</div>
+            <ul class="comp-list">
+              <li>
+                <strong>Fails silently on API rate limits:</strong> Data drops without warning during traffic spikes.
+              </li>
+              <li>
+                <strong>Unchecked AI Hallucinations:</strong> Output changes format randomly and corrupts CRM databases.
+              </li>
+              <li>
+                <strong>Expensive SaaS Lock-in:</strong> Paying $1,500+/mo on Zapier tasks with recurring seat fees.
+              </li>
+              <li>
+                <strong>No Deduplication:</strong> Duplicate webhooks create duplicate orders, emails, and chaos.
+              </li>
+              <li>
+                <strong>Zero Handover Documentation:</strong> You are left stranded when the freelancer disappears.
+              </li>
+            </ul>
+          </div>
+
+          <div class="comp-card resilient-card">
+            <div class="comp-card-badge text-gradient">✓ The AutomateIQ Engineering Standard</div>
+            <ul class="comp-list">
+              <li>
+                <strong>Exponential Backoff & Retries:</strong> Automatic queueing ensures 100% of payloads get delivered.
+              </li>
+              <li>
+                <strong>Strict Schema Validation:</strong> Pydantic & JSON validation reject or auto-correct bad outputs.
+              </li>
+              <li>
+                <strong>100% Code & Data Ownership:</strong> Self-hosted on your own VPS (n8n/Docker/Python) for pennies.
+              </li>
+              <li>
+                <strong>Idempotent & Dedup Ledgers:</strong> Redis or database locks prevent any duplicate processing.
+              </li>
+              <li>
+                <strong>Full Video & Architecture Docs:</strong> Custom Loom walkthroughs and clean modular node architecture.
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE CAPABILITIES / SOLUTIONS SECTION -->
+    <section class="solutions-section" id="solutions">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">Our Core Capabilities</div>
+          <h2 class="section-title">Four Pillars of <span class="text-gradient">Autonomous Operations</span></h2>
+          <p class="section-subtitle">Custom-engineered systems tailored to eliminate your specific business bottleneck.</p>
+        </div>
+
+        <div class="solutions-grid">
+          
+          <div class="solution-card glass-panel">
+            <div class="sol-icon">🤖</div>
+            <h3 class="sol-title">Autonomous AI Agents & Tool-Calling</h3>
+            <p class="sol-desc">
+              Multi-agent reasoning architectures that autonomously browse the web, verify company credentials, query databases, and execute multi-step decisions with human-in-the-loop approvals.
+            </p>
+            <div class="sol-tags">
+              <span>Claude 3.5 Sonnet</span>
+              <span>Function Calling</span>
+              <span>Human Approval Gates</span>
+            </div>
+          </div>
+
+          <div class="solution-card glass-panel">
+            <div class="sol-icon">⚡</div>
+            <h3 class="sol-title">Enterprise n8n & Python Pipelines</h3>
+            <p class="sol-desc">
+              High-throughput backend orchestration. Self-hosted on your dedicated cloud infrastructure (AWS, DigitalOcean, Hetzner) ensuring complete GDPR/HIPAA compliance and zero per-task SaaS tax.
+            </p>
+            <div class="sol-tags">
+              <span>Docker & VPS</span>
+              <span>Python Microservices</span>
+              <span>Error Alerting</span>
+            </div>
+          </div>
+
+          <div class="solution-card glass-panel">
+            <div class="sol-icon">🔄</div>
+            <h3 class="sol-title">Deep CRM, ERP & Legacy Database Sync</h3>
+            <p class="sol-desc">
+              Bi-directional synchronization between modern CRMs (HubSpot, Pipedrive) and complex enterprise software (Simpro, Beds24, PostgreSQL, Supabase) with conflict-resolution logic.
+            </p>
+            <div class="sol-tags">
+              <span>Simpro API</span>
+              <span>Beds24 Hospitality</span>
+              <span>Postgres / Supabase</span>
+            </div>
+          </div>
+
+          <div class="solution-card glass-panel">
+            <div class="sol-icon">📑</div>
+            <h3 class="sol-title">Intelligent Document & Invoice Ingestion</h3>
+            <p class="sol-desc">
+              Turn unstructured PDFs, scanned receipts, email attachments, and work orders into validated database records. Auto-match line items against purchase orders and post to accounting.
+            </p>
+            <div class="sol-tags">
+              <span>PDF OCR</span>
+              <span>Line Item Matching</span>
+              <span>99.8% Precision</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE ROI CALCULATOR SECTION -->
+    <section class="calculator-section" id="calculator">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">Interactive Business Case</div>
+          <h2 class="section-title">Calculate Your <span class="text-gradient">Annual Savings</span> with AI Automation</h2>
+          <p class="section-subtitle">
+            Repetitive manual data handling quietly burns hundreds of thousands of dollars every year. Slide the controls to calculate your exact savings:
+          </p>
+        </div>
+
+        <div class="calc-wrapper glass-panel">
+          <div class="calc-inputs">
+            
+            <div class="calc-input-group">
+              <div class="calc-label-row">
+                <label for="calc-team">Team members doing manual data entry / admin:</label>
+                <span class="calc-value-display" id="calc-team-val">4 people</span>
+              </div>
+              <input type="range" id="calc-team" min="1" max="20" value="4" class="calc-slider">
+              <div class="slider-ticks"><span>1</span><span>5</span><span>10</span><span>20</span></div>
+            </div>
+
+            <div class="calc-input-group">
+              <div class="calc-label-row">
+                <label for="calc-hours">Hours spent per week per person on routine tasks:</label>
+                <span class="calc-value-display" id="calc-hours-val">12 hrs/wk</span>
+              </div>
+              <input type="range" id="calc-hours" min="2" max="30" value="12" class="calc-slider">
+              <div class="slider-ticks"><span>2 hrs</span><span>10 hrs</span><span>20 hrs</span><span>30 hrs</span></div>
+            </div>
+
+            <div class="calc-input-group">
+              <div class="calc-label-row">
+                <label for="calc-rate">Average hourly compensation / wage:</label>
+                <span class="calc-value-display" id="calc-rate-val">$35 / hr</span>
+              </div>
+              <input type="range" id="calc-rate" min="15" max="120" step="5" value="35" class="calc-slider">
+              <div class="slider-ticks"><span>$15</span><span>$45</span><span>$75</span><span>$120</span></div>
+            </div>
+
+          </div>
+
+          <div class="calc-results">
+            <div class="calc-result-header">ESTIMATED ANNUAL IMPACT</div>
+            
+            <div class="result-stat-box">
+              <div class="result-number text-gradient" id="calc-dollars-saved">$87,360</div>
+              <div class="result-sub">Annual Operational Capital Saved</div>
+            </div>
+
+            <div class="result-stat-row">
+              <div class="sub-stat">
+                <span class="sub-stat-num" id="calc-hours-saved">2,496 hrs</span>
+                <span class="sub-stat-label">Hours Recovered / Year</span>
+              </div>
+              <div class="sub-stat">
+                <span class="sub-stat-num" id="calc-payback">Under 18 Days</span>
+                <span class="sub-stat-label">Average Payback Period</span>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" id="btn-open-audit-calc">
+              <span>Reclaim These Hours Now</span>
+              <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <p class="calc-footnote text-muted">Calculated on 52 business weeks assuming 85% task automation coverage.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- PROVEN BLUEPRINTS / CASE STUDIES -->
+    <section class="case-studies-section" id="case-studies">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">Proven Deployments</div>
+          <h2 class="section-title">Tested in the Field: <span class="text-gradient">Real Client Blueprints</span></h2>
+          <p class="section-subtitle">Real-world production systems we have engineered and actively support:</p>
+        </div>
+
+        <div class="case-grid">
+          
+          <div class="case-card glass-panel">
+            <div class="case-category">Field Services & ERP</div>
+            <h3 class="case-title">Simpro ERP Job & Invoice Synchronization</h3>
+            <p class="case-desc">
+              Created an automated Python/n8n bridge connecting mobile contractor job completions directly to Simpro ERP and accounting, auto-generating itemized invoices with attachment validation.
+            </p>
+            <div class="case-metrics">
+              <div class="metric-item">
+                <span class="m-val text-gradient">18 hrs/wk</span>
+                <span class="m-lbl">Admin Saved</span>
+              </div>
+              <div class="metric-item">
+                <span class="m-val text-gradient">100%</span>
+                <span class="m-lbl">Invoice Accuracy</span>
+              </div>
+              <div class="metric-item">
+                <span class="m-val text-gradient">&lt; 45 sec</span>
+                <span class="m-lbl">Sync Latency</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-card glass-panel">
+            <div class="case-category">Hospitality & Property Management</div>
+            <h3 class="case-title">Beds24 Multi-Channel AI Guest Concierge</h3>
+            <p class="case-desc">
+              Synchronized 4 OTA channels through Beds24 API with an AI guest assistant that handles check-in queries, verifies ID submissions, locks calendars, and generates custom door codes.
+            </p>
+            <div class="case-metrics">
+              <div class="metric-item">
+                <span class="m-val text-gradient">92 sec</span>
+                <span class="m-lbl">Avg Response Time</span>
+              </div>
+              <div class="metric-item">
+                <span class="m-val text-gradient">0</span>
+                <span class="m-lbl">Double Bookings</span>
+              </div>
+              <div class="metric-item">
+                <span class="m-val text-gradient">+22%</span>
+                <span class="m-lbl">Direct Re-bookings</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="case-card glass-panel">
+            <div class="case-category">B2B Sales Operations</div>
+            <h3 class="case-title">Autonomous Inbound Lead Intake & Scoring</h3>
+            <p class="case-desc">
+              Incoming enterprise demo requests trigger live company revenue lookups, tech stack scraping, and Claude 3.5 Sonnet analysis to score the deal, alert sales reps on Slack, and draft custom proposals.
+            </p>
+            <div class="case-metrics">
+              <div class="metric-item">
+                <span class="m-val text-gradient">3.4x</span>
+                <span class="m-lbl">Faster First Touch</span>
+              </div>
+              <div class="metric-item">
+                <span class="m-val text-gradient">40%</span>
+                <span class="m-lbl">Higher Conversion</span>
+              </div>
+              <div class="metric-item">
+                <span class="m-val text-gradient">Zero</span>
+                <span class="m-lbl">Manual CRM Entry</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-STEP DELIVERY ROADMAP -->
+    <section class="process-section" id="process">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-tag">How We Work</div>
+          <h2 class="section-title">From Concept to Production in <span class="text-gradient">4 Structured Steps</span></h2>
+          <p class="section-subtitle">We manage the full engineering lifecycle so your team can focus on core business.</p>
+        </div>
+
+        <div class="process-timeline">
+          
+          <div class="process-step glass-panel">
+            <div class="step-num text-gradient">01</div>
+            <h3 class="step-title">Workflow Discovery & Schema Audit</h3>
+            <p class="step-desc">
+              We map your current manual process, identify API edge cases, and define guaranteed JSON data contracts between all your tools.
+            </p>
+          </div>
+
+          <div class="process-step glass-panel">
+            <div class="step-num text-gradient">02</div>
+            <h3 class="step-title">Pipeline Architecture & Custom Logic</h3>
+            <p class="step-desc">
+              We construct your workflows in self-hosted n8n or Python microservices, embedding Claude/OpenAI prompts with strict anti-hallucination guardrails.
+            </p>
+          </div>
+
+          <div class="process-step glass-panel">
+            <div class="step-num text-gradient">03</div>
+            <h3 class="step-title">Edge-Case Hardening & Fail-Safes</h3>
+            <p class="step-desc">
+              We stress-test with abnormal inputs, configure exponential backoff retries, and wire instant Telegram/Slack error alerts with dead-letter logging.
+            </p>
+          </div>
+
+          <div class="process-step glass-panel">
+            <div class="step-num text-gradient">04</div>
+            <h3 class="step-title">Live Deployment & Video Handover</h3>
+            <p class="step-desc">
+              We roll out to your live environment, provide full repository ownership, and record personalized Loom video documentation plus 30 days of active support.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section" id="faq">
+      <div class="container faq-container">
+        <div class="section-header text-center">
+          <div class="section-tag">Frequently Asked Questions</div>
+          <h2 class="section-title">Clear Answers on <span class="text-gradient">Security, Cost & Deployment</span></h2>
+        </div>
+
+        <div class="faq-accordion">
+          
+          <details name="faq-group">
+            <summary>How do you ensure our company data remains secure and private?</summary>
+            <div class="faq-content">
+              <p>Security is paramount. We advocate for self-hosted instances of n8n on your own dedicated cloud server (AWS, DigitalOcean, Hetzner) or Docker container. We never store client credentials on third-party servers, use environment variables for API secrets, and ensure full compliance with GDPR/data residency standards.</p>
+            </div>
+          </details>
+
+          <details name="faq-group">
+            <summary>Who pays for the OpenAI / Claude API usage?</summary>
+            <div class="faq-content">
+              <p>You provide your own API keys for Anthropic or OpenAI. Because we optimize prompt token length, leverage structured JSON outputs, and implement intelligent caching, typical monthly LLM costs for business workflows are negligible—often under $10 to $25 per month even for high-volume pipelines.</p>
+            </div>
+          </details>
+
+          <details name="faq-group">
+            <summary>What happens if a third-party API (like HubSpot or Simpro) goes down?</summary>
+            <div class="faq-content">
+              <p>Unlike fragile no-code setups, our pipelines implement retry queues with exponential backoff and dead-letter logs. If a third-party API returns an error or is unreachable, the execution pauses, retries intelligently, and immediately pings your designated Slack or Telegram channel with full error context.</p>
+            </div>
+          </details>
+
+          <details name="faq-group">
+            <summary>Do we get full ownership of the code and workflows?</summary>
+            <div class="faq-content">
+              <p>Yes, 100%. You receive complete access to the n8n workflows, Python scripts, database schemas, and documentation. There is zero proprietary agency lock-in; your team can modify, clone, or export the pipelines anytime.</p>
+            </div>
+          </details>
+
+          <details name="faq-group">
+            <summary>How can we hire AutomateIQ on Upwork?</summary>
+            <div class="faq-content">
+              <p>We are a Top Rated Upwork Agency with a 100% Job Success Score. You can contract us directly through our Upwork Agency profile for fixed-price catalog milestones or hourly architecture retainers with full Upwork Payment Protection.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION FINAL BANNER -->
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-card glass-panel text-center">
+          <div class="cta-badge">Ready to Scale Without Adding Overhead?</div>
+          <h2 class="cta-title">Stop Drowning in Manual Data Tasks.<br><span class="text-gradient">Automate Your End-to-End Pipeline Today.</span></h2>
+          <p class="cta-subtitle">
+            Book a complimentary 20-minute architecture audit. We will analyze your current workflow bottlenecks and map out a concrete implementation roadmap.
+          </p>
+          <div class="cta-actions">
+            <button type="button" class="btn btn-primary btn-lg" id="btn-open-audit-footer">
+              <span>Book Your Architecture Audit</span>
+              <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg">
+              <span>View Upwork Agency Profile</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-left">
+        <div class="brand-logo">
+          <div class="logo-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2L2 7L12 12L22 7L12 12Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"/>
+              <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <span class="brand-name">Automate<span class="text-gradient">IQ</span></span>
+        </div>
+        <p class="footer-tagline">
+          Production-grade AI automation pipelines and autonomous agent engineering for modern enterprises.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Navigation</div>
+          <ul>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#demo">Live Simulation</a></li>
+            <li><a href="#calculator">ROI Calculator</a></li>
+            <li><a href="#case-studies">Blueprints</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Upwork Agency</div>
+          <ul>
+            <li><span class="badge-pill-sub">Top Rated Agency</span></li>
+            <li><span class="badge-pill-sub">100% Job Success</span></li>
+            <li><span class="badge-pill-sub">35+ 5-Star Reviews</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <div class="copyright">© <span id="current-year">2026</span> AutomateIQ Agency. All rights reserved.</div>
+        <div class="footer-meta">Built for High-Growth Enterprises & Autonomous Operations.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MULTI-STEP AUDIT & LEAD FUNNEL MODAL -->
+  <dialog class="audit-dialog" id="audit-dialog" aria-labelledby="dialog-title" closedby="any">
+    <div class="dialog-card glass-panel">
+      
+      <div class="dialog-header">
+        <div class="dialog-step-indicator">
+          <span class="step-badge" id="dialog-step-badge">Step 1 of 3</span>
+          <h3 class="dialog-title" id="dialog-title">Request Your Architecture Audit</h3>
+        </div>
+        <button type="button" class="btn-close-dialog" id="btn-close-dialog" aria-label="Close dialog">✕</button>
+      </div>
+
+      <form id="audit-form" class="audit-form" method="dialog">
+        
+        <!-- STEP 1: Operational Bottlenecks -->
+        <div class="form-step active" data-step="1">
+          <p class="step-prompt">What is the primary operational bottleneck in your business right now?</p>
+          <div class="radio-options-grid">
+            <label class="custom-choice">
+              <input type="radio" name="bottleneck" value="Manual Data Entry & Disconnected Apps" checked>
+              <div class="choice-box">
+                <span class="choice-icon">🔄</span>
+                <span class="choice-text">Manual Data Entry & Disconnected Apps</span>
+              </div>
+            </label>
+            <label class="custom-choice">
+              <input type="radio" name="bottleneck" value="PDF Invoices, Orders & Document Extraction">
+              <div class="choice-box">
+                <span class="choice-icon">📄</span>
+                <span class="choice-text">PDF Invoices, Orders & Document Extraction</span>
+              </div>
+            </label>
+            <label class="custom-choice">
+              <input type="radio" name="bottleneck" value="Slow Lead Intake & CRM Qualification">
+              <div class="choice-box">
+                <span class="choice-icon">⚡</span>
+                <span class="choice-text">Slow Lead Intake & CRM Qualification</span>
+              </div>
+            </label>
+            <label class="custom-choice">
+              <input type="radio" name="bottleneck" value="Custom ERP / Hospitality Multi-Channel Sync">
+              <div class="choice-box">
+                <span class="choice-icon">🏨</span>
+                <span class="choice-text">Custom ERP / Hospitality Multi-Channel Sync</span>
+              </div>
+            </label>
+          </div>
+          <div class="form-actions">
+            <div></div>
+            <button type="button" class="btn btn-primary" id="btn-step-1-next">
+              <span>Next: Select Stack</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Current Tools -->
+        <div class="form-step" data-step="2">
+          <p class="step-prompt">Which platforms and tools need to be connected? (Select all that apply)</p>
+          <div class="checkbox-options-grid">
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="n8n" checked>
+              <span class="check-box-ui">n8n / Make</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="HubSpot / Pipedrive" checked>
+              <span class="check-box-ui">HubSpot / Pipedrive</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="PostgreSQL / Supabase">
+              <span class="check-box-ui">PostgreSQL / Supabase</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="Simpro ERP">
+              <span class="check-box-ui">Simpro ERP</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="Beds24">
+              <span class="check-box-ui">Beds24 (Hospitality)</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="Google Workspace / Email">
+              <span class="check-box-ui">Google Workspace / Email</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="Custom REST API">
+              <span class="check-box-ui">Custom REST API / Webhooks</span>
+            </label>
+            <label class="custom-checkbox">
+              <input type="checkbox" name="tools" value="OpenAI / Claude LLMs">
+              <span class="check-box-ui">OpenAI / Claude LLMs</span>
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="btn-step-2-prev">Back</button>
+            <button type="button" class="btn btn-primary" id="btn-step-2-next">
+              <span>Next: Contact Details</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Contact & Timeline -->
+        <div class="form-step" data-step="3">
+          <p class="step-prompt">Where should we send your preliminary architecture roadmap?</p>
+          <div class="form-inputs-wrap">
+            <div class="input-field">
+              <label for="lead-name">Your Name *</label>
+              <input type="text" id="lead-name" required placeholder="Alex Miller" autocomplete="name">
+            </div>
+            <div class="input-field">
+              <label for="lead-email">Business Email *</label>
+              <input type="email" id="lead-email" required placeholder="alex@company.com" autocomplete="email">
+            </div>
+            <div class="input-field">
+              <label for="lead-company">Company / Website</label>
+              <input type="text" id="lead-company" placeholder="Acme Logistics" autocomplete="organization">
+            </div>
+            <div class="input-field">
+              <label for="lead-notes">Brief notes on the workflow (Optional)</label>
+              <textarea id="lead-notes" rows="2" placeholder="e.g. Need to parse 50 invoices/day from Gmail and update Simpro..."></textarea>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="btn-step-3-prev">Back</button>
+            <button type="submit" class="btn btn-primary" id="btn-submit-lead">
+              <span>Submit & Schedule Call</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- STEP 4: Success Screen -->
+        <div class="form-step" data-step="success">
+          <div class="success-screen text-center">
+            <div class="success-icon">🎉</div>
+            <h4 class="success-title">Audit Request Received!</h4>
+            <p class="success-desc">
+              Thank you, <strong id="success-lead-name">there</strong>! We are analyzing your tool stack and will prepare an actionable architecture blueprint.
+            </p>
+            <div class="success-box glass-panel">
+              <p>Want to speak with our Principal Engineer immediately?</p>
+              <a href="https://www.upwork.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+                <span>Message on Upwork (Direct Agency Chat)</span>
+              </a>
+            </div>
+            <button type="button" class="btn btn-secondary btn-sm" id="btn-close-success">Done</button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
