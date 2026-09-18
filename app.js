@@ -32,14 +32,14 @@ function initPipelineSimulator() {
       name: 'Inbound Lead Qualification',
       steps: [
         { label: 'Webhook / Typeform', desc: 'Inbound Enterprise Demo Request' },
-        { label: 'Claude 3.5 Sonnet', desc: 'Domain Enrichment & Need Analysis' },
+        { label: 'Claude 5 Opus', desc: 'Domain Enrichment & Need Analysis' },
         { label: 'Pydantic Validator', desc: 'JSON Schema & Dedup Check' },
         { label: 'HubSpot CRM Sync', desc: 'Deal Created & Lead Scored' },
         { label: 'Slack Alerting', desc: 'Sales Rep Pinned with Summary' }
       ],
       logs: [
         { tag: 'info', msg: 'Webhook ingested from https://forms.acme.com/quote-req' },
-        { tag: 'info', msg: 'Invoking Claude 3.5 Sonnet (Temp: 0.1, Schema: LeadEnrichmentV2)' },
+        { tag: 'info', msg: 'Invoking Claude 5 Opus (Temp: 0.1, Schema: LeadEnrichmentV2)' },
         { tag: 'success', msg: 'Extracted: Company="FinScale Inc", Budget="$25K+", Urgency="Immediate"' },
         { tag: 'success', msg: 'Schema validated: 0 null fields, dedup lock verified via Redis' },
         { tag: 'info', msg: 'POST https://api.hubapi.com/crm/v3/objects/deals -> 201 Created (ID: 98124)' },

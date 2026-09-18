@@ -2,7 +2,7 @@
 
 Official website and interactive portal for **AutomateIQ**, an elite AI Automation and Engineering Agency specializing in:
 - Production-grade **n8n** and **Python** workflow orchestration
-- Autonomous AI Agents with **Claude 3.5 Sonnet** and **OpenAI GPT-4o**
+- Autonomous AI Agents with **Claude 5 Opus** and **OpenAI GPT-4o**
 - Deep CRM/ERP integration (**Simpro**, **Beds24**, **HubSpot**, **PostgreSQL**, **Supabase**)
 - Resilient, anti-hallucination pipelines with schema validation and automated fail-safes
 
