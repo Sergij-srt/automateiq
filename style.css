@@ -216,7 +216,7 @@ body {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 18px 0;
+  padding: max(18px, env(safe-area-inset-top, 18px)) 0 18px;
   background: rgba(7, 9, 14, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -586,6 +586,18 @@ body {
   margin-bottom: 32px;
   overflow-x: auto;
   padding: 10px 0;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.3) transparent;
+}
+
+.pipeline-flow-wrap::-webkit-scrollbar {
+  height: 6px;
+}
+
+.pipeline-flow-wrap::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 3px;
 }
 
 .pipeline-nodes-container {
@@ -1781,7 +1793,8 @@ dialog.audit-dialog::backdrop {
 @media (max-width: 768px) {
   /* Header */
   .site-header {
-    padding: 12px 0;
+    padding-top: max(12px, env(safe-area-inset-top, 12px));
+    padding-bottom: 12px;
   }
 
   .brand-name {
@@ -2087,7 +2100,7 @@ dialog.audit-dialog::backdrop {
   }
 
   .dialog-card {
-    padding: 20px 16px;
+    padding: 20px 16px max(20px, env(safe-area-inset-bottom, 20px));
   }
 
   .dialog-title {
