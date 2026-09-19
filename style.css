@@ -342,6 +342,19 @@ body {
   background-color: var(--text-main);
   transition: all 0.3s ease;
 }
+
+.mobile-toggle.active .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-toggle.active .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
 /* ==========================================================================
    Hero Section
    ========================================================================== */
@@ -1708,57 +1721,544 @@ dialog.audit-dialog::backdrop {
    Responsive Breakpoints
    ========================================================================== */
 
+/* ---- Tablet & Small Desktop (≤ 992px) ---- */
 @media (max-width: 992px) {
   .calc-wrapper {
     grid-template-columns: 1fr;
     padding: 32px;
     gap: 36px;
   }
-  
+
   .nav-menu {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(7, 9, 14, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glow);
+    padding: 16px 24px 24px;
+    z-index: 99;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
   }
-  
+
+  .nav-menu.open {
+    display: block;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 14px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+
   .mobile-toggle {
     display: flex;
   }
+
+  .header-container {
+    position: relative;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
+/* ---- Mobile (≤ 768px) ---- */
 @media (max-width: 768px) {
+  /* Header */
+  .site-header {
+    padding: 12px 0;
+  }
+
+  .brand-name {
+    font-size: 1.1rem;
+  }
+
+  .brand-tag {
+    font-size: 0.6rem;
+  }
+
+  .logo-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .upwork-badge-pill {
+    display: none;
+  }
+
+  .header-social-links {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .btn-sm {
+    padding: 7px 14px;
+    font-size: 0.8rem;
+  }
+
+  /* Hero */
+  .hero-section {
+    padding: 50px 0 40px;
+  }
+
+  .hero-pill {
+    font-size: 0.76rem;
+    padding: 6px 14px;
+  }
+
   .hero-cta-group {
     flex-direction: column;
     width: 100%;
+    margin-bottom: 40px;
   }
-  
+
   .hero-cta-group .btn {
     width: 100%;
   }
-  
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+  }
+
+  /* Trust Ribbon */
   .trust-ribbon {
     flex-direction: column;
     gap: 20px;
-    padding: 24px;
+    padding: 24px 20px;
   }
-  
+
   .trust-divider {
     width: 60px;
     height: 1px;
   }
-  
+
+  .trust-number {
+    font-size: 1.5rem;
+  }
+
+  .trust-label {
+    font-size: 0.75rem;
+  }
+
+  /* Tech Strip */
+  .tech-tags {
+    gap: 8px;
+  }
+
+  .tech-badge {
+    font-size: 0.74rem;
+    padding: 5px 11px;
+  }
+
+  /* Video Showcase */
+  .video-showcase-section {
+    padding: 50px 0;
+  }
+
+  .video-player-card {
+    padding: 10px;
+  }
+
+  .video-card-footer {
+    padding: 10px 6px 4px;
+  }
+
+  .video-badge {
+    font-size: 0.75rem;
+  }
+
+  /* Pipeline Demo */
+  .demo-section {
+    padding: 50px 0;
+  }
+
+  .demo-card {
+    padding: 20px 16px;
+  }
+
+  .pipeline-tabs {
+    gap: 8px;
+    padding-bottom: 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab-btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+
+  .tab-btn .tab-icon {
+    font-size: 1rem;
+  }
+
+  .console-body {
+    font-size: 0.74rem;
+    padding: 12px 14px;
+    min-height: 100px;
+  }
+
+  /* Solutions Grid */
+  .solutions-section {
+    padding: 50px 0;
+  }
+
+  .solutions-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .solution-card {
+    padding: 24px 20px;
+  }
+
+  /* Comparison Section */
+  .comparison-section {
+    padding: 50px 0;
+  }
+
+  .comp-card {
+    padding: 28px 22px;
+  }
+
+  /* ROI Calculator */
+  .calculator-section {
+    padding: 50px 0;
+  }
+
+  .calc-wrapper {
+    padding: 24px 20px;
+    gap: 28px;
+  }
+
+  .result-number {
+    font-size: 2.6rem;
+  }
+
+  .result-stat-row {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  /* Case Studies */
+  .case-studies-section {
+    padding: 50px 0;
+  }
+
+  .case-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .case-card {
+    padding: 28px 22px;
+  }
+
+  .case-metrics {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .metric-item {
+    min-width: 80px;
+  }
+
+  /* Process Timeline */
+  .process-section {
+    padding: 50px 0;
+  }
+
+  .process-timeline {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .process-step {
+    padding: 24px 20px;
+  }
+
+  /* Team Section */
+  .team-section {
+    padding: 50px 0;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .team-card {
+    padding: 32px 24px;
+  }
+
+  .team-name {
+    font-size: 1.3rem;
+  }
+
+  .team-bio {
+    font-size: 0.86rem;
+  }
+
+  /* FAQ */
+  .faq-section {
+    padding: 50px 0;
+  }
+
+  summary {
+    padding: 16px 18px;
+    font-size: 0.95rem;
+  }
+
+  .faq-content {
+    padding: 0 18px 18px;
+    font-size: 0.88rem;
+  }
+
+  /* CTA Banner */
+  .cta-banner-section {
+    padding: 50px 0 60px;
+  }
+
+  .cta-card {
+    padding: 40px 24px;
+  }
+
+  .cta-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding: 40px 0 24px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-left {
+    max-width: 100%;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .footer-bottom-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Dialog */
+  dialog.audit-dialog {
+    width: min(96vw, 620px);
+  }
+
+  .dialog-card {
+    padding: 20px 16px;
+  }
+
+  .dialog-title {
+    font-size: 1.1rem;
+  }
+
   .checkbox-options-grid {
     grid-template-columns: 1fr;
   }
-  
-  .footer-container {
+
+  .form-actions {
     flex-direction: column;
+    gap: 10px;
   }
-  
-  .footer-links {
-    gap: 40px;
+
+  .form-actions .btn {
+    width: 100%;
   }
-  
+
+  /* Section Headers */
+  .section-header {
+    margin-bottom: 32px;
+  }
+
+  .section-subtitle {
+    font-size: 0.92rem;
+  }
+}
+
+/* ---- Small Mobile (≤ 480px) ---- */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .hero-section {
+    padding: 36px 0 30px;
+  }
+
+  .hero-pill {
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    gap: 6px;
+  }
+
+  .hero-title {
+    font-size: 1.65rem;
+    margin-bottom: 16px;
+  }
+
+  .hero-subtitle {
+    font-size: 0.88rem;
+  }
+
+  .btn-lg {
+    padding: 12px 22px;
+    font-size: 0.92rem;
+  }
+
+  .trust-ribbon {
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .trust-number {
+    font-size: 1.3rem;
+  }
+
+  .tech-badge {
+    font-size: 0.68rem;
+    padding: 4px 9px;
+  }
+
+  .video-player-card {
+    padding: 6px;
+    border-radius: var(--radius-md);
+  }
+
+  .video-badge span {
+    font-size: 0.68rem;
+  }
+
+  .section-tag {
+    font-size: 0.7rem;
+  }
+
+  .sol-title {
+    font-size: 1.05rem;
+  }
+
+  .sol-desc {
+    font-size: 0.84rem;
+  }
+
+  .case-title {
+    font-size: 1.1rem;
+  }
+
+  .case-desc {
+    font-size: 0.84rem;
+  }
+
+  .team-card {
+    padding: 28px 18px;
+  }
+
+  .team-avatar-wrap {
+    width: 110px;
+    height: 110px;
+  }
+
+  .team-name {
+    font-size: 1.15rem;
+  }
+
+  .team-role {
+    font-size: 0.85rem;
+  }
+
+  .contact-btn {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+  }
+
+  .cta-card {
+    padding: 32px 18px;
+  }
+
+  .step-num {
+    font-size: 1.8rem;
+  }
+
+  .step-title {
+    font-size: 1rem;
+  }
+
+  .step-desc {
+    font-size: 0.82rem;
+  }
+
+  .calc-wrapper {
+    padding: 20px 16px;
+  }
+
+  .result-number {
+    font-size: 2.2rem;
+  }
+
+  .sub-stat-num {
+    font-size: 1.05rem;
+  }
+
   .dialog-card {
-    padding: 24px 20px;
+    padding: 16px 14px;
+  }
+
+  .choice-box {
+    padding: 10px 12px;
+  }
+
+  .choice-text {
+    font-size: 0.82rem;
+  }
+
+  summary {
+    padding: 14px 16px;
+    font-size: 0.88rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.82rem;
   }
 }
 
@@ -2071,14 +2571,6 @@ dialog.audit-dialog::backdrop {
   gap: 10px;
 }
 
-@media (max-width: 768px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-  .header-social-links {
-    display: none;
-  }
-}
 
 
 /* ==========================================================================
