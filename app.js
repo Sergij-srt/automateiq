@@ -125,8 +125,8 @@ function initPipelineSimulator() {
     if (isSimulating) return;
     isSimulating = true;
     runBtn.disabled = true;
-    runBtnIcon.textContent = '⏳';
-    runBtnText.textContent = 'Executing...';
+    runBtnIcon.textContent = '';
+    runBtnText.textContent = 'Executing Telemetry...';
 
     // Clear console and reset nodes
     consoleOutput.innerHTML = '';
@@ -177,8 +177,8 @@ function initPipelineSimulator() {
 
     isSimulating = false;
     runBtn.disabled = false;
-    runBtnIcon.textContent = '▶';
-    runBtnText.textContent = 'Run Live Simulation Again';
+    runBtnIcon.textContent = '';
+    runBtnText.textContent = 'Re-Run Simulation';
   });
 }
 
