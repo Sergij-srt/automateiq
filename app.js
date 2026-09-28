@@ -29,57 +29,54 @@ function initPipelineSimulator() {
 
   const pipelineConfigs = {
     lead: {
-      name: 'Inbound Lead Qualification',
+      name: 'Lead intake and CRM update',
       steps: [
-        { label: 'Webhook / Typeform', desc: 'Inbound Enterprise Demo Request' },
-        { label: 'Claude 5 Opus', desc: 'Domain Enrichment & Need Analysis' },
-        { label: 'Pydantic Validator', desc: 'JSON Schema & Dedup Check' },
-        { label: 'HubSpot CRM Sync', desc: 'Deal Created & Lead Scored' },
-        { label: 'Slack Alerting', desc: 'Sales Rep Pinned with Summary' }
+        { label: 'Form / Webhook', desc: 'New lead received' },
+        { label: 'AI classification', desc: 'Extract request details' },
+        { label: 'Rule checks', desc: 'Required fields and duplicates' },
+        { label: 'CRM update', desc: 'Create or update record' },
+        { label: 'Team notification', desc: 'Notify owner with a summary' }
       ],
       logs: [
-        { tag: 'info', msg: 'Webhook ingested from https://forms.acme.com/quote-req' },
-        { tag: 'info', msg: 'Invoking Claude 5 Opus (Temp: 0.1, Schema: LeadEnrichmentV2)' },
-        { tag: 'success', msg: 'Extracted: Company="FinScale Inc", Budget="$25K+", Urgency="Immediate"' },
-        { tag: 'success', msg: 'Schema validated: 0 null fields, dedup lock verified via Redis' },
-        { tag: 'info', msg: 'POST https://api.hubapi.com/crm/v3/objects/deals -> 201 Created (ID: 98124)' },
-        { tag: 'success', msg: 'Slack message dispatched to #enterprise-leads -> Finished in 1.18s' }
+        { tag: 'info', msg: 'Sample lead received from a web form.' },
+        { tag: 'info', msg: 'Extracting the request type and key details.' },
+        { tag: 'success', msg: 'Required fields checked; items needing review are flagged.' },
+        { tag: 'info', msg: 'CRM action prepared for the matching lead.' },
+        { tag: 'success', msg: 'The lead owner receives a summary.' }
       ]
     },
     invoice: {
-      name: 'PDF Invoice & ERP Sync',
+      name: 'Invoice and ERP sync',
       steps: [
-        { label: 'Gmail / S3 Trigger', desc: 'Incoming Vendor PDF Invoice' },
-        { label: 'Multimodal Vision LLM', desc: 'Line Item & Tax Table Extraction' },
-        { label: 'Math Engine Check', desc: 'Subtotal + VAT == Total Verification' },
-        { label: 'Simpro ERP & QB', desc: 'Bill & Purchase Order Auto-Created' },
-        { label: 'Telegram Dispatch', desc: 'Finance Lead Pinged with Audit Link' }
+        { label: 'Email / storage', desc: 'Invoice received' },
+        { label: 'Data extraction', desc: 'Read line items and totals' },
+        { label: 'Rule checks', desc: 'Check fields and calculations' },
+        { label: 'ERP update', desc: 'Prepare a bill or purchase order' },
+        { label: 'Team notification', desc: 'Notify the finance owner' }
       ],
       logs: [
-        { tag: 'info', msg: 'Email attachment detected: "INV-2026-90812.pdf" (348 KB)' },
-        { tag: 'info', msg: 'Parsing document with GPT-4o Vision & OCR Table Extraction' },
-        { tag: 'success', msg: 'Found 14 line items, Vendor="Apex Industrial Ltd", Total="$14,280.00"' },
-        { tag: 'success', msg: 'Deterministic math check passed: ($12,000.00 + $2,280.00 VAT = $14,280.00)' },
-        { tag: 'info', msg: 'Simpro API: Matching PO #6610 -> Status updated to "Ready for Payment"' },
-        { tag: 'success', msg: 'Audit trail logged to Supabase -> Latency: 1.42s' }
+        { tag: 'info', msg: 'Sample invoice received.' },
+        { tag: 'info', msg: 'Reading supplier, line items, and totals.' },
+        { tag: 'success', msg: 'Required fields and totals checked.' },
+        { tag: 'info', msg: 'ERP record prepared for the next step.' },
+        { tag: 'success', msg: 'Finance owner notified of the result.' }
       ]
     },
     hospitality: {
-      name: 'Beds24 Multi-Channel AI Concierge',
+      name: 'Booking and guest workflow',
       steps: [
-        { label: 'Beds24 Webhook', desc: 'Guest Message / OTA Inquiry' },
-        { label: 'Contextual AI Router', desc: 'Intent, Dates & Language Detection' },
-        { label: 'Security & Availability', desc: 'Calendar Mutex & ID Policy Check' },
-        { label: 'OTA & Smart Lock Sync', desc: 'Door PIN & Check-in Packet Generated' },
-        { label: 'Instant Multilingual Reply', desc: 'Dispatched in < 40 seconds' }
+        { label: 'Booking update', desc: 'New reservation or message' },
+        { label: 'Request routing', desc: 'Identify the guest request' },
+        { label: 'Availability check', desc: 'Check dates and property rules' },
+        { label: 'Task update', desc: 'Prepare the next team action' },
+        { label: 'Team notification', desc: 'Flag requests for follow-up' }
       ],
       logs: [
-        { tag: 'info', msg: 'Incoming OTA webhook received: Booking.com (Res #B24-88391)' },
-        { tag: 'info', msg: 'AI Router: Language="Spanish", Intent="Early Check-In & Parking Access"' },
-        { tag: 'success', msg: 'Property status check: Unit 4B cleaning completed at 11:30 AM' },
-        { tag: 'info', msg: 'Generating temporary SmartLock PIN via Igloohome API' },
-        { tag: 'success', msg: 'Generated personalized response in Spanish with Door PIN 7291#' },
-        { tag: 'success', msg: 'Dispatched through Beds24 API -> Guest confirmed in 38s' }
+        { tag: 'info', msg: 'Sample booking update received.' },
+        { tag: 'info', msg: 'Classifying the guest request.' },
+        { tag: 'success', msg: 'Dates and property rules checked.' },
+        { tag: 'info', msg: 'Housekeeping task prepared for the team.' },
+        { tag: 'success', msg: 'A team member is notified when follow-up is needed.' }
       ]
     }
   };
@@ -111,7 +108,7 @@ function initPipelineSimulator() {
     });
     connectors.forEach(c => c.classList.remove('pulse-active'));
 
-    consoleOutput.innerHTML = `<div class="log-line text-muted">// Switched to: <strong>${config.name}</strong>. Click "Run Live Simulation" to execute.</div>`;
+    consoleOutput.innerHTML = `<div class="log-line text-muted">// Switched to: <strong>${config.name}</strong>. Click "Run example" to walk through it.</div>`;
   }
 
   tabs.forEach(tab => {
@@ -126,7 +123,7 @@ function initPipelineSimulator() {
     isSimulating = true;
     runBtn.disabled = true;
     runBtnIcon.textContent = '';
-    runBtnText.textContent = 'Executing Telemetry...';
+    runBtnText.textContent = 'Running example…';
 
     // Clear console and reset nodes
     consoleOutput.innerHTML = '';
@@ -173,12 +170,12 @@ function initPipelineSimulator() {
       appendLog(config.logs[nodes.length].tag, config.logs[nodes.length].msg);
     }
 
-    appendLog('success', '✓ [200 OK] Execution completed successfully with zero schema errors.');
+    appendLog('success', 'Sample workflow finished. Production behavior is scoped to each project.');
 
     isSimulating = false;
     runBtn.disabled = false;
     runBtnIcon.textContent = '';
-    runBtnText.textContent = 'Re-Run Simulation';
+    runBtnText.textContent = 'Run again';
   });
 }
 
@@ -196,7 +193,6 @@ function initRoiCalculator() {
 
   const dollarsSavedElem = document.getElementById('calc-dollars-saved');
   const hoursSavedElem = document.getElementById('calc-hours-saved');
-  const paybackElem = document.getElementById('calc-payback');
 
   function calculate() {
     const team = parseInt(teamInput.value, 10);
@@ -207,19 +203,11 @@ function initRoiCalculator() {
     hoursVal.textContent = `${hours} hrs/wk`;
     rateVal.textContent = `$${rate} / hr`;
 
-    // 85% of repetitive work automated, over 52 weeks
-    const totalWeeklyHours = team * hours;
-    const automatedWeeklyHours = totalWeeklyHours * 0.85;
-    const annualHoursSaved = Math.round(automatedWeeklyHours * 52);
-    const annualDollarsSaved = Math.round(annualHoursSaved * rate);
+    const annualHours = team * hours * 52;
+    const annualCost = annualHours * rate;
 
-    // Payback period assuming an average build investment of ~$4,000
-    const dailySavings = annualDollarsSaved / 365;
-    const paybackDays = Math.max(7, Math.round(3800 / (dailySavings || 1)));
-
-    dollarsSavedElem.textContent = `$${annualDollarsSaved.toLocaleString()}`;
-    hoursSavedElem.textContent = `${annualHoursSaved.toLocaleString()} hrs`;
-    paybackElem.textContent = paybackDays < 30 ? `Under ${paybackDays} Days` : `~${Math.round(paybackDays / 30)} Months`;
+    dollarsSavedElem.textContent = `$${annualCost.toLocaleString()}`;
+    hoursSavedElem.textContent = `${annualHours.toLocaleString()} hrs`;
   }
 
   [teamInput, hoursInput, rateInput].forEach(slider => {
@@ -330,7 +318,7 @@ function initAuditModal() {
     });
   }
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     /* ── Collect all form data ────────────────────────────────── */
@@ -354,48 +342,14 @@ function initAuditModal() {
     });
     const tools = selectedTools.join(', ') || '—';
 
-    /* ── Show success screen instantly (fire-and-forget) ─────── */
-    successLeadName.textContent = nameVal;
-    showStep('success');
-
-    /* ── 1. Send Telegram notification to Group & Direct Chat ──── */
-    const tgToken   = '8820754329:AAER4vZUbtLPqHUdATp53xGzbDdvsP4yRcA';
-    const tgChatIds = ['-5580728612', '425454406'];
-
-    const escapeHtml = (str) => String(str || '').replace(/[&<>'"]/g, tag => ({
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      "'": '&#39;',
-      '"': '&quot;'
-    }[tag] || tag));
-
-    const tgHtml = [
-      '🔔 <b>New Lead from AutomateIQ Website</b>',
-      '',
-      `👤 <b>Name:</b> ${escapeHtml(nameVal)}`,
-      `📧 <b>Email:</b> ${escapeHtml(emailVal)}`,
-      `🏢 <b>Company:</b> ${escapeHtml(companyVal || '—')}`,
-      `⚙️ <b>Bottleneck:</b> ${escapeHtml(bottleneck)}`,
-      `🔧 <b>Tools:</b> ${escapeHtml(tools)}`,
-      `📝 <b>Notes:</b> ${escapeHtml(notesVal || '—')}`,
-      '',
-      `📅 <i>${new Date().toLocaleString('en-GB', { timeZone: 'Europe/Kiev' })}</i>`
-    ].join('\n');
-
-    tgChatIds.forEach(chatId => {
-      fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: chatId,
-          text: tgHtml,
-          parse_mode: 'HTML'
-        })
-      }).catch(() => { /* silent – user already sees success */ });
-    });
-
     /* ── 2. Send email notification via formsubmit.co ────────── */
+    const formError = document.getElementById('lead-form-error');
+    const submitButton = document.getElementById('btn-submit-lead');
+    const submitButtonLabel = submitButton.querySelector('span');
+    formError.hidden = true;
+    submitButton.disabled = true;
+    submitButtonLabel.textContent = 'Sending…';
+
     const emailData = new FormData();
     emailData.append('name', nameVal);
     emailData.append('email', emailVal);
@@ -407,10 +361,21 @@ function initAuditModal() {
     emailData.append('_captcha', 'false');
     emailData.append('_template', 'table');
 
-    fetch('https://formsubmit.co/ajax/sirotinskijsergij@gmail.com', {
-      method: 'POST',
-      body: emailData
-    }).catch(() => { /* silent */ });
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/sirotinskijsergij@gmail.com', {
+        method: 'POST',
+        body: emailData
+      });
+      if (!response.ok) throw new Error('Request could not be sent.');
+      successLeadName.textContent = nameVal;
+      showStep('success');
+    } catch (error) {
+      formError.textContent = 'We could not send your request. Please try again or message Serhii on Upwork.';
+      formError.hidden = false;
+    } finally {
+      submitButton.disabled = false;
+      submitButtonLabel.textContent = 'Send project details';
+    }
   });
 }
 

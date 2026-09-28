@@ -1,24 +1,21 @@
-# AutomateIQ — Enterprise AI Automation & Autonomous Pipelines
+# AutomateIQ — n8n, AI agents, and business automation
 
-Official website and interactive portal for **AutomateIQ**, an elite AI Automation and Engineering Agency specializing in:
-- Production-grade **n8n** and **Python** workflow orchestration
-- Autonomous AI Agents with **Claude 5 Opus** and **OpenAI GPT-4o**
-- Deep CRM/ERP integration (**Simpro**, **Beds24**, **HubSpot**, **PostgreSQL**, **Supabase**)
-- Resilient, anti-hallucination pipelines with schema validation and automated fail-safes
+AutomateIQ builds workflow automations and integrations around existing business processes. The site presents three areas of work:
 
-## Upwork Verified Credentials
-- **Agency:** AutomateIQ
-- **Status:** Upwork Top Rated Agency
-- **Job Success Score (JSS):** 100%
-- **Verified Reviews:** 35+ 5-Star Enterprise Deployments
-- **Track Record:** $20,000+ Verified Delivery
+- n8n and Make workflows, webhooks, and Python services
+- AI agents for focused tasks, with validation and human review where needed
+- CRM, ERP, booking, and database integrations
 
-## Live Production Link
-Hosted via GitHub Pages: [https://sergij-srt.github.io/automateiq/](https://sergij-srt.github.io/automateiq/)
+## Serhii on Upwork
 
-## Local Development
-To run this website locally:
-```bash
-python -m http.server 8080
-```
-Then visit `http://localhost:8080` in your browser.
+Serhii Syrotynskyi's public Upwork profile currently shows Top Rated status, a 100% Job Success Score, a 4.9/5 rating across 35 reviews, 64 total jobs, and 542 hours.
+
+Profile: [upwork.com/freelancers/~01099b172a04ea9bde](https://www.upwork.com/freelancers/~01099b172a04ea9bde)
+
+## Live site
+
+Hosted with GitHub Pages: [sergij-srt.github.io/automateiq](https://sergij-srt.github.io/automateiq/)
+
+## Local preview
+
+Run `python -m http.server 8080` in this folder, then open `http://localhost:8080`.

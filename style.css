@@ -1980,6 +1980,12 @@ dialog.audit-dialog::backdrop {
     display: none;
   }
 
+  .site-header .btn-sm {
+    padding: 8px 12px;
+    font-size: 0.74rem;
+    white-space: nowrap;
+  }
+
   .hero-section {
     padding: 50px 0 40px;
   }
@@ -2080,6 +2086,7 @@ dialog.audit-dialog::backdrop {
   .studio-tagline {
     font-size: 0.68rem;
     padding: 6px 14px;
+    letter-spacing: 0.07em;
   }
 
   .hero-title {
@@ -2117,4 +2124,21 @@ dialog.audit-dialog::backdrop {
   .result-number {
     font-size: 2.4rem;
   }
+}
+
+.form-submit-error {
+  margin: 0 0 16px;
+  color: #fecaca;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.form-submit-error[hidden] {
+  display: none;
+}
+
+.btn:disabled {
+  cursor: wait;
+  opacity: 0.7;
+  transform: none;
 }
